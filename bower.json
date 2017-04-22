@@ -1,0 +1,17 @@
+{
+  "name": "windows",
+  "description": "",
+  "main": "index.html",
+  "authors": [
+    "eu-tsareva <eu.tsareva@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
