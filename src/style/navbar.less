@@ -2,10 +2,35 @@
   ul {
     display: flex;
     justify-content: space-around;
-
+    margin: 0;
+    padding: 0;
+    height: @navbar-height;
     list-style: none;
+    background-color: @navbar-default-bg;
 
+    > li {
+      flex-grow: 1;
+      text-align: center;
+
+      &:not(:last-child) {
+        border-right: 1px solid @gray-light;
+      }
+
+      > a {
+        display: block;
+        color: @navbar-default-link-color;
+        font-size: 1.7em;
+        line-height: 2.29;
+        text-decoration: none;
+
+        &:hover,
+        &:active,
+        &.active {
+          text-decoration: none;
+          color: @navbar-default-link-hover-color;
+          background-color: @navbar-default-link-hover-bg;
+        }
+      }
+    }
   }
-
-
 }

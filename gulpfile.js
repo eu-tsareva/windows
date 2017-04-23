@@ -33,7 +33,7 @@ var path = {
     jsx: 'src/js/jsx/app.jsx',
     style: 'src/style/main.less',
     img: 'src/img/**/*.*',
-    fonts: 'src/fonts/'
+    fonts: 'src/fonts/*.*'
   },
   watch: {
     html: 'src/*.html',
@@ -41,7 +41,7 @@ var path = {
     jsx: 'src/js/jsx/*.jsx',
     style: 'src/style/*.less',
     img: 'src/img/**/*.*',
-    fonts: 'src/fonts/'
+    fonts: 'src/fonts/*.*'
   },
   clean: ['./build']
 };
