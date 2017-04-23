@@ -10,14 +10,14 @@ class ReviewBox extends React.Component {
       "reviewList": []
     }
   }
-  
+
   render() {
     return (
       <div>
-        <ul>
+        <ul className="list-unstyled">
           { this.state.reviewList.map(review => this._generateReview(review)) }
         </ul>
-        <a href="#">Оставить отзыв</a>
+        <a href="#" className="btn btn-primary">Оставить отзыв</a>
       </div>
 
     );

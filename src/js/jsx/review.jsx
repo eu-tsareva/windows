@@ -4,15 +4,19 @@ class Review extends React.Component {
   render() {
     return (
       <div className="review">
-        <span className="review-author">{ this.props.author }</span>
-        <span className="review-doc">{ this.props.doc }</span>
-        <span className="review-date">{ this.props.date }</span>
-        <span className="review-rating">{ this.props.rating }</span>
+        <p className="review-author">{ this.props.author }</p>
+        <p className="review-doc">Договор { this.props.doc }</p>
+        <p className="review-date">Дата размещения { this.props.date }</p>
+        <p className="review-rating">{ this._showStars(this.props.rating) }</p>
         <p className="review-text">{ this.props.text }</p>
 
         <a href="#">Прочитать полностью</a>
       </div>
     )
+  }
+
+  _showStars(rating) {
+    return rating;
   }
 }
 

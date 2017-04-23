@@ -91,3 +91,52 @@ a {
     }
   }
 }
+
+.info {
+  ul li {
+    margin-bottom: 1.2em;
+
+    > img {
+      float: left;
+      margin-right: 2.5em;
+    }
+  }
+
+  ol {
+    counter-reset: _counter;
+    li {
+      position: relative;
+      margin-bottom: 1em;
+      padding-left: 3.5em;
+
+      &::before {
+        counter-increment: _counter;
+        content: counter(_counter);
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        .square(35px);
+
+        line-height: 35px;
+        text-align: center;
+
+        border: 2px solid #000;
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+.page-footer {
+  padding: 40px 0;
+  background: #a5b7c1;
+  box-shadow: inset 0 5px 15px 0px rgba(0, 0, 0, 0.3);
+
+  .page-nav {
+    a.active {
+      color: inherit;
+      background-color: transparent;
+    }
+  }
+}
