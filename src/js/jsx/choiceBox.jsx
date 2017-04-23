@@ -6,36 +6,47 @@ class ChoiceBox extends React.Component {
 
     this.state = {
       "materialList": [],
-      "current": 0
+      "current": 0,
+      "discount": "70%"
     }
   }
 
   render() {
     return (
       <div className="choice">
-        <div className="">Создайте выразительный интерьер с цветными окнами REHAU</div>
-        <figure>
-          <img src={ this._getCurrent().img } alt={ this._getCurrent().name } />
-          <figcaption>{ this._getCurrent().name }</figcaption>
-        </figure>
-        <ul className="features">
-          <li key="1">Точная визуализация натурального дерева.</li>
-          <li key="2">Яркие нестандартные цвета в тон или в дополнение интерьера.</li>
-          <li key="3">Разные фактуры для Ваших пластиковых окон.</li>
-        </ul>
-        Подберите цвет для своих окон:
-        <ul>
-          { this.state.materialList.map(material =>
-            <li key= { material.id }><a onClick={ this._setCurrent.bind(this, material.id) }><img src={ material.thumbnail } alt={ material.name } /></a></li>) }
-        </ul>
-        <p>Больше 50 вариантов  цветов и фактур спрашивайте у наших замерщиков</p>
-        <ul>
-          <li>цена<br /><a>от { this._getCurrent().price } р/м<sup>2</sup></a></li>
-          <li>скидка<br /><a>-70%</a></li>
-          <li>действует<a> с 15 по 20</a> февраля</li>
-        </ul>
-        <button>Рассчитать со скидкой 70%</button>
-        <a href="#">или отправить заявку и получить консультацию</a>
+        <h2>Создайте выразительный интерьер с цветными окнами REHAU</h2>
+        <div className="row">
+          <div className="col-md-4">
+            <figure>
+              <img src={ this._getCurrent().img } alt={ this._getCurrent().name } />
+              <figcaption>{ this._getCurrent().name }</figcaption>
+            </figure>
+          </div>
+          <div className="col-md-4">
+            <ul className="features">
+              <li key="1">Точная визуализация натурального дерева.</li>
+              <li key="2">Яркие нестандартные цвета в тон или в дополнение интерьера.</li>
+              <li key="3">Разные фактуры для Ваших пластиковых окон.</li>
+            </ul>
+            Подберите цвет для своих окон:
+            <ul className="choice-color-list list-inline">
+              { this.state.materialList.map(material =>
+                <li key= { material.id }>
+                  <a className={ this._isCurrent(material.id) } onClick={ this._setCurrent.bind(this, material.id) }>
+                    <img src={ material.thumbnail } alt={ material.name } />
+                  </a>
+                </li>) }
+            </ul>
+            <p>Больше 50 вариантов  цветов и фактур спрашивайте у наших замерщиков</p>
+            <ul className="list-inline">
+              <li>цена<br /><a>от { this._getCurrent().price } р/м<sup>2</sup></a></li>
+              <li>скидка<br /><a>-{ this.state.discount }%</a></li>
+              <li>действует<a> с 15 по 20</a> февраля</li>
+            </ul>
+            <a href="#" className="btn btn-primary btn-show-calc">Рассчитать со скидкой { this.state.discount }</a>
+            <p><a href="#">или отправить заявку и получить консультацию</a></p>
+          </div>
+        </div>
       </div>
     );
   }
@@ -74,6 +85,10 @@ class ChoiceBox extends React.Component {
 
   _setCurrent(index) {
     this.setState({ current: index});
+  }
+
+  _isCurrent(index) {
+    return this.state.current == index ? "active" : "";
   }
 }
 
